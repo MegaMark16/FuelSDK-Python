@@ -1,4 +1,4 @@
-from rest import ET_CUDSupport,ET_CUDSupportRest,ET_GetSupport,ET_Get,ET_Patch,ET_Post,ET_Delete,ET_Configure
+from rest import ET_CUDSupport,ET_CUDSupportRest,ET_GetSupport,ET_Get,ET_Patch,ET_Post,ET_Perform,ET_Delete,ET_Configure
 
 ########
 ##
@@ -11,9 +11,9 @@ class ET_EmailSendDefinition(ET_CUDSupport):
         super(ET_EmailSendDefinition, self).__init__()
         self.obj_type = 'EmailSendDefinition'
 
-    def send(self):
+    def start(self):
         tscall = self.props
-        self.obj = ET_Post(self.auth_stub, "EmailSendDefinition", tscall)
+        self.obj = ET_Perform(self.auth_stub, "start", "EmailSendDefinition", tscall)
         return self.obj
 
 ########
