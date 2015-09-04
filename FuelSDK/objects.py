@@ -11,9 +11,8 @@ class ET_EmailSendDefinition(ET_CUDSupport):
         super(ET_EmailSendDefinition, self).__init__()
         self.obj_type = 'EmailSendDefinition'
 
-    def start(self):
-        tscall = self.props
-        self.obj = ET_Perform(self.auth_stub, "start", "EmailSendDefinition", tscall)
+    def perform(self):
+        self.obj = ET_Perform(self.auth_stub, 'start', self.obj_type, self.props)
         return self.obj
 
 ########
@@ -178,6 +177,11 @@ class ET_Email(ET_CUDSupport):
     def __init__(self):
         super(ET_Email, self).__init__()
         self.obj_type = 'Email'
+
+class ET_Template(ET_CUDSupport):
+    def __init__(self):
+        super(ET_Template, self).__init__()
+        self.obj_type = 'Template'
 
 class ET_TriggeredSend(ET_CUDSupport):
     subscribers = None
